@@ -58,40 +58,56 @@ const stagger = {
 /* ── Data ── */
 const experiences = [
   {
-    role: "Software Engineer",
+    role: "Software Engineer Intern",
+    company: "T-Mobile",
+    date: "May 2026 – Present",
+    location: "WA, USA",
+    bullets: [
+      "Designed and deployed a multi-tenant Claude Code platform in Node.js/TypeScript and Python, accessible via a Web UI and Microsoft Teams (Entra ID + Graph API), with backend workloads orchestrated in Kubernetes pods.",
+      "Engineered platform reliability and security features: real-time WebSocket connections, GitLab OAuth, Playwright with automated branch management, stateful session checkpointing for restore, and token-based access control stored in the database.",
+      "Built an Amazon Bedrock-powered accessory recommendation pipeline for T-Mobile commerce, surfacing personalized suggestions at checkout via order hooks.",
+      "Automated environment provisioning by adding an Amazon EKS deployment stage to existing CI/CD pipelines.",
+    ],
+  },
+  {
+    role: "Software Development Engineer",
     company: "Amazon",
     date: "Aug 2021 – Aug 2025",
     location: "Hyderabad, India",
     bullets: [
-      "Expanded HEX MAWS services to a new AWS region (ZAZ), provisioning core infrastructure — Orca workflow, Apollo, ASGs, ALBs/NLBs, VPCs, subnets, security groups, and CloudWatch — for new teams.",
-      "Modernized platform by designing Java-based APIs, eliminating 45+ infrastructure risks per service (90K+ total), replacing legacy components, and transferring ownership to service teams.",
+      "Expanded distributed services to a new AWS region (ZAZ), provisioning and validating cloud infrastructure (ASGs, EC2, ALBs/NLBs, VPCs, subnets, security groups) to support high-availability web services, boosting service coverage by 40%.",
+      "Modernized an internal dashboard by replacing DynamoDB metadata reads with real-time service APIs and lazy loading, reducing load time, stale data, and DynamoDB storage/read costs while preserving existing workflows.",
+      "Designed and implemented an automated alerting pipeline integrating CloudWatch, SQS, and Slack to enable real-time monitoring and reduce MTTR across distributed applications.",
+      "Built a Python load forecasting pipeline on CloudWatch metrics to predict peak traffic and automate EC2 fleet scaling.",
+      "Built Java REST APIs to modernize legacy components, eliminating 45+ infrastructure risks per service across 90K resources.",
+      "Implemented Security Event Logging with 1-year encrypted S3 retention, least-privilege IAM controls, and CI/CD-managed compliance.",
+      "Led root cause analysis for Sev-1 Linux networking incidents, implementing long-term fixes to prevent recurrence.",
       "Drove a migration campaign for 1,500+ services to adopt JDK 17, automating code reviews and actively supporting teams through successful migration.",
-      "Built Python ML models (Pandas, NumPy, scikit-learn, TensorFlow) to forecast traffic peaks; integrated with a Java backend workflow for automated EC2 scaling.",
-      "Automated alert pipelines (CloudWatch → SQS → Slack) to enhance operational visibility and reduce MTTR.",
       "Onboarded customer tickets to GenAI TicketSummarizer, generating real-time summaries to improve efficiency.",
-      "Implemented Security Event Logging with 1-year retention using IAM and CI/CD for secure, auditable service logs.",
-      "Collaborated cross-functionally to debug and resolve Sev-1 Linux networking incidents in distributed systems.",
     ],
   },
   {
-    role: "Software Engineer Intern",
+    role: "Software Development Engineer Intern",
     company: "Amazon",
     date: "Jan 2021 – Jul 2021",
     location: "Hyderabad, India",
     bullets: [
-      'Launched "Sync Data," an internal automation tool built with Java, JavaScript, and DynamoDB; tested with JUnit and Mockito, adopted by 2,000+ teams to streamline data workflows.',
+      'Launched "Sync Data," an internal automation tool built with Java, JavaScript, and DynamoDB; tested using JUnit and Mockito, adopted by 2,000+ teams to streamline repetitive data workflows and reduce operational overhead.',
+      "Developed Bash scripts using curl to scrape internal web data and parse it for automation workflows.",
       "Developed Bash scripts to automate infrastructure transfers and ownership validation for hostclasses.",
-      "Built a Tampermonkey script using JavaScript, HTML/CSS, and DOM manipulation to inject custom UI, automating repetitive tasks and boosting developer productivity by 70%.",
+      "Performed Linux-based systems debugging, analyzing TCP/IP behavior, latency, and concurrency issues to identify bottlenecks.",
+      "Developed a Tampermonkey script using JavaScript, HTML/CSS, and DOM manipulation to inject custom UI into existing workflows, automating repetitive tasks and boosting developer productivity by 70%.",
     ],
   },
   {
-    role: "Mentee – Campus Mentorship Series",
+    role: "Software Intern",
     company: "Amazon",
     date: "Jan 2020 – Jun 2020",
     location: "Delhi, India",
     bullets: [
-      "Built an end-to-end Python ML pipeline to ingest real-time Twitter data, apply NLP techniques (tokenization, TF-IDF, feature engineering), and evaluate customer sentiment.",
-      "Preprocessed 50K+ records with deduplication and feature engineering; built a React dashboard with FastAPI backend for real-time ML predictions.",
+      "Built an end-to-end Python ML pipeline to ingest real-time Twitter data, apply NLP techniques (tokenization, TF-IDF, feature engineering), and evaluate customer sentiment for a European locker facility launch.",
+      "Preprocessed 50K+ records with deduplication, missing-value handling, and feature engineering to improve data quality.",
+      "Built a ReactJS dashboard with a FastAPI backend to inspect real-time ML predictions.",
     ],
   },
 ];
@@ -102,7 +118,8 @@ const skillCategories = [
     icon: <FiCode />,
     color: "purple",
     skills: [
-      "C/C++",
+      "C",
+      "C++",
       "Python",
       "Java",
       "JavaScript",
@@ -120,6 +137,7 @@ const skillCategories = [
       "Spring MVC",
       "React / React Native",
       "Node.js",
+      "Swift",
       ".NET",
       "Git",
       "JIRA",
@@ -133,7 +151,7 @@ const skillCategories = [
     icon: <FiCloud />,
     color: "purple",
     skills: [
-      "AWS",
+      "AWS (EKS, EC2, Lambda, SQS, DynamoDB, S3, CloudWatch)",
       "GCP",
       "Docker",
       "Kubernetes",
@@ -149,17 +167,24 @@ const skillCategories = [
     color: "amber",
     skills: [
       "TensorFlow",
+      "PyTorch",
       "Pandas",
       "NumPy",
+      "SciPy",
+      "NLP",
       "Feature Engineering",
       "scikit-learn",
     ],
   },
   {
-    title: "Databases & Messaging",
+    title: "Networking & Databases",
     icon: <FiDatabase />,
     color: "teal",
     skills: [
+      "TCP/IP",
+      "DHCP",
+      "Routing Fundamentals",
+      "Load Balancing (ALB/NLB)",
       "MySQL",
       "PostgreSQL",
       "MongoDB",
@@ -173,23 +198,30 @@ const skillCategories = [
     title: "AI Tools & Editors",
     icon: <FiCpu />,
     color: "amber",
-    skills: ["Cursor", "Windsurf", "Claude", "Copilot"],
+    skills: [
+      "Claude",
+      "Claude Code",
+      "Amazon Bedrock",
+      "Cursor",
+      "Windsurf",
+      "Copilot",
+    ],
   },
 ];
 
 const projects = [
   {
-    title: "Lumen – AI Powered Skincare Assistant",
+    title: "Lumen – AI Powered Skincare Assistant (iOS)",
     tech: [
-      "React Native",
-      "AWS Lambda",
+      "Swift",
+      "SwiftUI",
+      "AWS",
+      "OpenAI GPT-4o",
       "Hugging Face",
-      "LangChain",
-      "DynamoDB",
-      "Terraform",
+      "Pinecone",
     ],
     description:
-      "AI-powered mobile app with a serverless AWS backend (Lambda, API Gateway, S3, DynamoDB). Integrated ML and LLM pipelines (GPT-4o, Claude 3.5, RAG with Pinecone + Titan embeddings) with secure JWT-auth APIs, privacy-first data handling, and CloudWatch observability.",
+      "AI-powered skincare assistant iOS app with a serverless AWS backend (Lambda, API Gateway, S3, DynamoDB) secured via Cognito JWT authentication. Integrated ML + LLM pipelines with RAG (Pinecone + Titan embeddings).",
     icon: <FiSmartphone />,
   },
   {
@@ -207,9 +239,9 @@ const education = [
     school: "San Jose State University",
     date: "Aug 2025 – May 2027",
     location: "San Jose, CA",
-    gpa: "4.0 / 4.0",
+    gpa: "3.8 / 4.0",
     coursework:
-      "Enterprise Software Platforms, Data Structures & Algorithms, Operating Systems Design, Database Systems",
+      "Enterprise Distributed Systems, System Design, Enterprise Software Platforms, Data Structures & Algorithms, Operating Systems Design, Database Systems, Data Mining",
   },
   {
     degree: "B.Tech in Electronics & Communication Engineering",
@@ -272,9 +304,11 @@ export default function Home() {
 
             <motion.p className="hero-title" variants={fadeUp} custom={2}>
               Software Engineer with 4+ years at{" "}
-              <strong style={{ color: "#f59e0b" }}>Amazon</strong>,
-              specializing in distributed systems, cloud infrastructure &amp;
-              ML. Pursuing MS at{" "}
+              <strong style={{ color: "#f59e0b" }}>Amazon</strong>, now
+              building AI platforms at{" "}
+              <strong style={{ color: "#e20074" }}>T-Mobile</strong>.
+              Specializing in distributed systems, cloud infrastructure &amp;
+              GenAI. Pursuing MS at{" "}
               <strong style={{ color: "#a855f7" }}>San Jose State</strong>.
             </motion.p>
 
@@ -288,7 +322,11 @@ export default function Home() {
                 <div className="hero-stat-label">Services Migrated</div>
               </div>
               <div className="hero-stat">
-                <div className="hero-stat-number">4.0</div>
+                <div className="hero-stat-number">2,000+</div>
+                <div className="hero-stat-label">Teams Using My Tools</div>
+              </div>
+              <div className="hero-stat">
+                <div className="hero-stat-number">3.8</div>
                 <div className="hero-stat-label">GPA at SJSU</div>
               </div>
             </motion.div>
@@ -358,12 +396,12 @@ export default function Home() {
                 </div>
                 <div>
                   <div style={{ fontWeight: 600, fontSize: "0.9rem" }}>
-                    ML & AI
+                    GenAI & ML
                   </div>
                   <div
                     style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}
                   >
-                    TensorFlow & LLMs
+                    Claude, Bedrock & LLMs
                   </div>
                 </div>
               </motion.div>
@@ -446,15 +484,18 @@ export default function Home() {
               <motion.p variants={fadeUp}>
                 I&apos;m a software engineer with over four years of experience
                 at Amazon, where I worked across cloud infrastructure, platform
-                modernization, and machine learning. I thrive at the
+                modernization, and machine learning. Today I&apos;m a Software
+                Engineer Intern at T-Mobile, building a multi-tenant Claude Code
+                platform and Amazon Bedrock-powered recommendations. I thrive at
+                the
                 intersection of building reliable distributed systems and
                 leveraging data-driven automation to solve complex operational
                 challenges.
               </motion.p>
               <motion.p variants={fadeUp}>
                 Currently pursuing my Master&apos;s in Computer Software
-                Engineering at San Jose State University with a perfect 4.0
-                GPA, I&apos;m passionate about expanding my expertise in
+                Engineering at San Jose State University with a 3.8 GPA,
+                I&apos;m passionate about expanding my expertise in
                 enterprise software architecture and emerging AI technologies.
               </motion.p>
 
@@ -470,8 +511,8 @@ export default function Home() {
                   <div className="icon">
                     <FiActivity />
                   </div>
-                  <h4>ML & AI Integration</h4>
-                  <p>Traffic forecasting & GenAI adoption</p>
+                  <h4>GenAI Platforms</h4>
+                  <p>Multi-tenant Claude Code platform & Bedrock pipelines</p>
                 </motion.div>
                 <motion.div className="about-highlight-card" variants={fadeUp}>
                   <div className="icon">
@@ -482,10 +523,24 @@ export default function Home() {
                 </motion.div>
                 <motion.div className="about-highlight-card" variants={fadeUp}>
                   <div className="icon">
+                    <FiServer />
+                  </div>
+                  <h4>Platform Modernization</h4>
+                  <p>45+ risks eliminated per service across 90K resources</p>
+                </motion.div>
+                <motion.div className="about-highlight-card" variants={fadeUp}>
+                  <div className="icon">
+                    <FiCpu />
+                  </div>
+                  <h4>ML & AI Integration</h4>
+                  <p>Traffic forecasting & GenAI adoption</p>
+                </motion.div>
+                <motion.div className="about-highlight-card" variants={fadeUp}>
+                  <div className="icon">
                     <FiAward />
                   </div>
                   <h4>Lifelong Learner</h4>
-                  <p>MS at SJSU with 4.0 GPA</p>
+                  <p>MS at SJSU with 3.8 GPA</p>
                 </motion.div>
               </motion.div>
             </motion.div>
@@ -509,8 +564,8 @@ export default function Home() {
               Where I&apos;ve made an impact
             </motion.h2>
             <motion.p className="section-subtitle" variants={fadeUp}>
-              4+ years of building, scaling, and modernizing systems at one of
-              the world&apos;s largest tech companies.
+              4+ years of building, scaling, and modernizing systems at Amazon,
+              and now building GenAI platforms at T-Mobile.
             </motion.p>
           </motion.div>
 
@@ -741,12 +796,12 @@ export default function Home() {
             variants={stagger}
           >
             <motion.a
-              href="mailto:sainishefali120499@gmail.com"
+              href="mailto:sainishefali05@gmail.com"
               className="contact-link"
               variants={fadeUp}
             >
               <FiMail className="icon" />
-              sainishefali120499@gmail.com
+              sainishefali05@gmail.com
             </motion.a>
 
             <motion.a
